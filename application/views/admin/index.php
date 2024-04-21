@@ -16,7 +16,7 @@
 													<div class="card-header flex justify-between sm:pt-6 py-5 sm:p-5 px-4 items-center relative flex-wrap">
 														<div class="revenue-date">
 															<span class="text-sm">Today Expected Repayments</span>
-															<h4 class="text-white text-2xl font-semibold"><?php echo number_format($receivable_total->total_rejesho)?></h4>
+															<h4 class="text-white text-2xl font-semibold">500</h4>
 														</div>
 														
 														
@@ -46,7 +46,7 @@
 													<div class="card-header flex justify-between sm:pt-6 py-5 sm:p-5 px-4 items-center relative flex-wrap">
 														<div class="revenue-date">
 															<span class="text-sm text-dark">Today Deposit</span>
-															<h4 class="text-dark text-2xl font-semibold"><?php echo number_format($total_receved->total_depost); ?></h4>
+															<h4 class="text-dark text-2xl font-semibold">700</h4>
 														</div>
 														<div class="avatar-list avatar-list-stacked me-2">
 															<span class="bg-white text-black justify-center text-xs inline-flex leading-[1.975rem] w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]">
@@ -108,7 +108,7 @@
 															<div class="flex justify-between">
 															
                
-																<p class="mb-0"><?php echo number_format( $today_total_loan_pend->total_pend); ?></p>
+																<p class="mb-0">800</p>
 															</div>
 															<div class="progress h-[5px] flex overflow-hidden rounded-md">
 																<div class="progress-bar bg-secondary" style="width:50%; height:5px; border-radius:4px;" role="progressbar"></div>
@@ -123,7 +123,7 @@
 														<div class="depostit-card-media flex justify-between px-5 pt-[18px] relative z-[1]">
 															<div>
 																<h6 class="font-normal">Dafault Loans</h6>
-																<h3 class="font-semibold leading-[1.346]"><?php echo number_format($total_remain->total_out); ?></h3>
+																<h3 class="font-semibold leading-[1.346]">5,000</h3>
 															</div>
 															
 														</div>
