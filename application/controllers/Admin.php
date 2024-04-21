@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
     $total_loanWithdrawal = $this->queries->get_today_withdrawal_loan($comp_id);
     $today_penart = $this->queries->get_total_penartToday($comp_id);
     $prepaid_today = $this->queries->prepaid_pay($comp_id);
+	
 
      $total_received = $this->queries->get_sumReceived_amount($comp_id);
      $prepaid_today = $this->queries->prepaid_pay($comp_id);
@@ -52,6 +53,11 @@ class Admin extends CI_Controller {
 
 	 $blanch_capital_circle = $this->queries->get_total_blanch_capital($comp_id);
 
+	//  james additional code
+	// $principal_today['today_principal'] = $this->queries-> get_today_principal($comp_id);
+    //       echo "<pre>";
+	// 	  print_r($principal_today);
+	// 	  exit();
 
 	      // print_r($blanch_capital_circle);
 	      //         exit();

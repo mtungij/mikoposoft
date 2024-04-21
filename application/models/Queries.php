@@ -2231,6 +2231,17 @@ public function get_total_principal($comp_id){
 	$data = $this->db->query("SELECT SUM(loan_aprove) AS loan_aproved FROM tbl_loans WHERE comp_id = '$comp_id' AND loan_status ='withdrawal'");
 	  return $data->row();
 }
+public function get_today_principal($comp_id){
+    
+    $today = date('Y-m-d');
+
+   
+    $data = $this->db->query("SELECT SUM(loan_aprove) AS loan_aproved FROM tbl_loans WHERE comp_id = '$comp_id' AND loan_status ='withdrawal' AND DATE(disburse_day) = '$today'");
+    
+    // Returning the result of the query
+    return $data->row();
+}
+
 
 public function get_total_principalBlanch($blanch_id){
 	$data = $this->db->query("SELECT SUM(loan_aprove) AS loan_aproveds FROM tbl_loans WHERE blanch_id = '$blanch_id' AND loan_status ='withdrawal'");

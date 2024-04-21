@@ -1,9 +1,7 @@
 <?php include('incs/admin_header.php'); ?>
 <?php include('incs/admin_sidebar.php'); ?>
 
-<div id="main-wrapper" class="relative">
-		<!-- Content body start -->
-        <div class="content-body">
+<div class="content-body">
 			<!-- row -->			
 			<div class="container-fluid">
 				<div class="row">
@@ -17,14 +15,10 @@
 												<div class="card bg-primary text-white">
 													<div class="card-header flex justify-between sm:pt-6 py-5 sm:p-5 px-4 items-center relative flex-wrap">
 														<div class="revenue-date">
-															<span class="text-sm">revenue</span>
-															<h4 class="text-white text-2xl font-semibold">$310.435</h4>
+															<span class="text-sm">Today Expected Repayments</span>
+															<h4 class="text-white text-2xl font-semibold"><?php echo number_format($receivable_total->total_rejesho)?></h4>
 														</div>
-														<div class="avatar-list avatar-list-stacked me-2">
-															<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															<span class="bg-white text-black inline-flex justify-center text-xs w-[2.375rem] h-[2.375rem] me-[-13px] leading-[1.975rem] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]">25+</span>
-														</div>
+														
 														
 													</div>
 													<div class="card-body sm:p-5 p-4 sm:pb-0 pb-0 flex flex-auto items-center custome-tooltip">
@@ -42,7 +36,7 @@
 																</clipPath>
 																</defs>
 															</svg>
-															<span class="block font-semibold">45%</span>
+
 														</div>
 													</div>
 												</div>
@@ -51,8 +45,8 @@
 												<div class="card bg-secondary text-white">
 													<div class="card-header flex justify-between sm:pt-6 py-5 sm:p-5 px-4 items-center relative flex-wrap">
 														<div class="revenue-date">
-															<span class="text-sm text-dark">Expenses</span>
-															<h4 class="text-dark text-2xl font-semibold">$920.035</h4>
+															<span class="text-sm text-dark">Today Deposit</span>
+															<h4 class="text-dark text-2xl font-semibold"><?php echo number_format($total_receved->total_depost); ?></h4>
 														</div>
 														<div class="avatar-list avatar-list-stacked me-2">
 															<span class="bg-white text-black justify-center text-xs inline-flex leading-[1.975rem] w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]">
@@ -80,18 +74,20 @@
 																</clipPath>
 																</defs>
 															</svg>
-															<span class="block font-semibold text-dark">45%</span>
+															
 														</div>
 													</div>
 												</div>
 											</div>
+
+											
 											<div class="sm:w-1/2">
 												<div class="card">
 													<div class="card-body depostit-card p-5">
 														<div class="depostit-card-media flex justify-between relative z-[2]">
 															<div>
-																<h6 class="font-normal">Tasks Not Finisheds</h6>
-																<h3 class="font-semibold leading-[1.346]">20</h3>
+																<a href=""<?php echo base_url("admin/loan_pending_time"); ?>" class="font-normal">Arrears</a>
+																<h3 class="font-semibold leading-[1.346]"></h3>
 															</div>
 															<div class="icon-box bg-secondary h-[2.5rem] w-[2.5rem] relative flex items-center justify-center rounded-md">
 																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,8 +106,9 @@
 														</div>
 														<div class="progress-box mt-0">
 															<div class="flex justify-between">
-																<p class="mb-0">Complete Task</p>
-																<p class="mb-0">20/28</p>
+															
+               
+																<p class="mb-0"><?php echo number_format( $today_total_loan_pend->total_pend); ?></p>
 															</div>
 															<div class="progress h-[5px] flex overflow-hidden rounded-md">
 																<div class="progress-bar bg-secondary" style="width:50%; height:5px; border-radius:4px;" role="progressbar"></div>
@@ -125,14 +122,10 @@
 													<div class="card-body depostit-card p-0">
 														<div class="depostit-card-media flex justify-between px-5 pt-[18px] relative z-[1]">
 															<div>
-																<h6 class="font-normal">Total Deposit</h6>
-																<h3 class="font-semibold leading-[1.346]">$1200.00</h3>
+																<h6 class="font-normal">Dafault Loans</h6>
+																<h3 class="font-semibold leading-[1.346]"><?php echo number_format($total_remain->total_out); ?></h3>
 															</div>
-															<div class="icon-box bg-primary text-white h-[2.5rem] w-[2.5rem] relative flex items-center justify-center rounded-md">
-																<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path d="M11.4642 13.7074C11.4759 12.1252 10.8504 10.8738 9.60279 9.99009C8.6392 9.30968 7.46984 8.95476 6.33882 8.6137C3.98274 7.89943 3.29927 7.52321 3.29927 6.3965C3.29927 5.14147 4.93028 4.69493 6.32655 4.69493C7.34341 4.69493 8.51331 5.01109 9.23985 5.47964L10.6802 3.24887C9.73069 2.6333 8.43112 2.21342 7.14783 2.0831V0H4.49076V2.22918C2.12884 2.74876 0.640949 4.29246 0.640949 6.3965C0.640949 7.87005 1.25327 9.03865 2.45745 9.86289C3.37331 10.4921 4.49028 10.83 5.56927 11.1572C7.88027 11.8557 8.81873 12.2813 8.80805 13.691L8.80799 13.7014C8.80799 14.8845 7.24005 15.3051 5.89676 15.3051C4.62786 15.3051 3.248 14.749 2.46582 13.9222L0.535522 15.7481C1.52607 16.7957 2.96523 17.5364 4.4907 17.8267V20.0001H7.14783V17.8735C9.7724 17.4978 11.4616 15.9177 11.4642 13.7074Z" fill="#fff"/>
-																</svg>
-															</div>
+															
 														</div>
 														<div id="NewExperience"></div>
 													</div>
@@ -142,27 +135,55 @@
 									</div>
 									<div class="xl:w-1/4 sm:w-1/2 w-full">
 										<div class="card bg-success rainbow-box relative z-[1] flex flex-col" style="background-image: url(assets/images/rainbow.gif);background-size: cover;background-blend-mode: luminosity;">
-											<div class="card-header flex justify-between sm:pt-6 py-5 sm:p-5 px-4 items-center relative flex-wrap">
-												<svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M41.605 3.94728L34.9548 0.107383C34.7065 -0.0357944 34.4007 -0.0357944 34.1525 0.107383C26.172 4.71641 16.338 4.71713 8.35679 0.108821L8.35391 0.107383C8.10569 -0.0357944 7.7999 -0.0357944 7.55168 0.107383L0.901472 3.94656C0.65325 4.08974 0.5 4.35451 0.5 4.64159V12.3207C0.5 12.6077 0.65325 12.8725 0.901472 13.0157C8.88345 17.6225 13.8004 26.1384 13.8004 35.355V35.3579C13.8004 35.6442 13.9537 35.9097 14.2019 36.0529L20.8521 39.8928C20.9766 39.9647 21.1147 40 21.2536 40C21.3924 40 21.5306 39.964 21.655 39.8928L28.3053 36.0529C28.5535 35.9097 28.7067 35.645 28.7067 35.3579C28.706 26.1413 33.623 17.6247 41.605 13.0164L41.6064 13.0157C41.8546 12.8725 42.0079 12.6077 42.0079 12.3207V4.6423C42.0057 4.35523 41.8532 4.09046 41.605 3.94728ZM40.4013 11.858L20.8514 23.1453C20.6032 23.2885 20.4499 23.5533 20.4499 23.8403V29.8891C19.8168 30.2013 19.3923 30.8712 19.439 31.6345C19.4944 32.5325 20.2139 33.2627 21.1118 33.3304C22.1788 33.4109 23.0696 32.5684 23.0696 31.5187C23.0696 30.8035 22.6559 30.1848 22.0551 29.8883C22.0551 26.4319 23.8991 23.2381 26.8922 21.5099L27.0994 21.3905L27.1001 34.8952L21.2521 38.2718L15.4042 34.8952V12.3214C15.4042 12.035 15.2509 11.7695 15.0027 11.6264L9.76338 8.60163C9.76626 8.56206 9.7677 8.52249 9.7677 8.4822C9.7677 7.45549 8.91583 6.62736 7.88049 6.66694C6.93868 6.70291 6.17171 7.46988 6.13573 8.41169C6.09616 9.44703 6.92429 10.2996 7.951 10.2996C8.32513 10.2996 8.67264 10.1867 8.96115 9.99312C11.9542 11.7213 13.7983 14.9151 13.7983 18.3715V18.6097L2.10229 11.8587V5.10637L7.95028 1.72982L27.5002 13.0171C27.7484 13.1603 28.0542 13.1603 28.3024 13.0171L33.541 9.9924C33.8324 10.1881 34.1842 10.3011 34.5619 10.2989C35.5526 10.2931 36.3664 9.47581 36.3678 8.48508C36.3693 7.47996 35.5555 6.66549 34.5511 6.66549C33.5474 6.66549 32.7344 7.47923 32.7344 8.4822C32.7344 8.52249 32.7359 8.56206 32.7387 8.60163C29.745 10.3298 26.0569 10.3298 23.0631 8.60163L22.8573 8.48292L34.5511 1.72982L40.3991 5.10637V11.858H40.4013Z" fill="white"/>
-												</svg>
-											</div>
+											
 											<div class="sm:p-5 p-4 sm:pt-0 pt-0 flex-auto">
 												<div class="finance"> 
-													<h4 class="text-white max-xl:text-xl text-2xl mb-2 leading-[1.5]">Your Finances, safe and Secure</h4>
-													<p class="text-white mb-4">
-														It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-													</p>
+													<h4 class="text-white max-xl:text-xl text-2xl mb-2 leading-[1.5]">All Custumer</h4>
+													
 												</div>
 												<div class="flex pt-4"> 
 													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic777.jpg" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group1.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+
 													</div>
 													<div class="ratting-data ml-5">
 														<h4 class="text-base text-white font-semibold">15k+</h4>
-														<span class="text-xs text-white">Happy Clients</span>
+														<span class="text-xs text-white">All Customers</span>
+													</div>
+												</div>
+												<div class="flex pt-4"> 
+													<div class="avatar-list avatar-list-stacked">
+													<img src="<?php echo base_url("assets/images/group1.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													</div>
+													<div class="ratting-data ml-5">
+														<h4 class="text-base text-white font-semibold">15k+</h4>
+														<span class="text-xs text-white">Active Customers</span>
+													</div>
+												</div>
+												<div class="flex pt-4"> 
+													<div class="avatar-list avatar-list-stacked">
+													<img src="<?php echo base_url("assets/images/group1.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													</div>
+													<div class="ratting-data ml-5">
+														<h4 class="text-base text-white font-semibold">15k+</h4>
+														<span class="text-xs text-white">Inprogress Customers</span>
+													</div>
+												</div>
+												<div class="flex pt-4"> 
+													<div class="avatar-list avatar-list-stacked">
+													<img src="<?php echo base_url("assets/images/group1.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													<img src="<?php echo base_url("assets/images/group3.png") ?>" class="inline-block w-[2.375rem] h-[2.375rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
+													</div>
+													<div class="ratting-data ml-5">
+														<h4 class="text-base text-white font-semibold">15k+</h4>
+														<span class="text-xs text-white">Closed Customers</span>
 													</div>
 												</div>
 											</div>
@@ -557,566 +578,14 @@
 							</div>			
 						</div>
 					</div>
-					<div class="xl:w-1/4 respo col-xxl-4 lg:w-5/12">
-						<div class="row">
-							<div class="w-full">
-								<div class="card flex flex-col bg-[#222B40]">
-									<div class="card-body schedules-cal p-2">
-										<input type="text" class="form-control hidden" id="datetimepicker1">
-										<div class="calendar-container"></div>
-										<div class="events relative">
-											<h6 class="text-sm uppercase border-t border-[#ffffff1a] text-white px-5 py-[9px] mb-2">events</h6>
-											<div class="event-scroll overflow-x-hidden overflow-y-auto relative h-[276px] px-5">
-												<div class="event-media flex items-center justify-between py-2.5 border-b border-[#ffffff1a]">
-													<div class="flex items-center">
-														<div class="event-box bg-[#ffffff1a] h-[55px] w-[55px] py-1 text-center rounded-md leading-[9px]">
-															<h5 class="text-xl font-semibold text-secondary">20</h5>
-															<span class="text-white text-[13px]">Mon</span>
-														</div>
-														<div class="event-data ml-2">
-															<h5 class="text-[15px] text-white"><a href="javascript:void(0)" class="text-white">Development planning</a></h5>
-															<span class="text-body-color text-[13px]">w3it Technologies</span>
-														</div>
-													</div>
-													<span class="text-white text-sm">12:05 PM</span>
-												</div>
-												<div class="event-media flex items-center justify-between py-2.5 border-b border-[#ffffff1a]">
-													<div class="flex items-center">
-														<div class="event-box bg-[#ffffff1a] h-[55px] w-[55px] py-1 text-center rounded-md leading-[9px]">
-															<h5 class="text-xl font-semibold text-secondary">20</h5>
-															<span class="text-white text-[13px]">Mon</span>
-														</div>
-														<div class="event-data ml-2">
-															<h5 class="text-[15px] text-white"><a href="javascript:void(0)" class="text-white">Designing planning</a></h5>
-															<span class="text-body-color text-[13px]">w3it Technologies</span>
-														</div>
-													</div>
-													<span class="text-white text-sm">12:05 PM</span>
-												</div>
-												<div class="event-media flex items-center justify-between py-2.5 border-b border-[#ffffff1a]">
-													<div class="flex items-center">
-														<div class="event-box bg-[#ffffff1a] h-[55px] w-[55px] py-1 text-center rounded-md leading-[9px]">
-															<h5 class="text-xl font-semibold text-secondary">20</h5>
-															<span class="text-white text-[13px]">Mon</span>
-														</div>
-														<div class="event-data ml-2">
-															<h5 class="text-[15px] text-white"><a href="javascript:void(0)" class="text-white">Frontend planning</a></h5>
-															<span class="text-body-color text-[13px]">w3it Technologies</span>
-														</div>
-													</div>
-													<span class="text-white text-sm">12:05 PM</span>
-												</div>
-												<div class="event-media flex items-center justify-between py-2.5 border-b border-[#ffffff1a]">
-													<div class="flex items-center">
-														<div class="event-box bg-[#ffffff1a] h-[55px] w-[55px] py-1 text-center rounded-md leading-[9px]">
-															<h5 class="text-xl font-semibold text-secondary">20</h5>
-															<span class="text-white text-[13px]">Mon</span>
-														</div>
-														<div class="event-data ml-2">
-															<h5 class="text-[15px] text-white"><a href="javascript:void(0)" class="text-white">Software planning</a></h5>
-															<span class="text-body-color text-[13px]">w3it Technologies</span>
-														</div>
-													</div>
-													<span class="text-white text-sm">12:05 PM</span>
-												</div>
-											</div>	
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="w-full">
-								<div class="card chart-chart relative flex flex-col">
-									<div class="card-body flex items-center px-5 py-2 flex-auto">
-										<div id="AllProject" class="ml-[-2.063rem]"></div>
-										<ul class="project-list">
-											<li class="text-[0.813rem] py-[1px] text-body-color whitespace-nowrap mb-[2px]"><h6 class="font-medium">All Projects</h6></li>
-											<li class="text-[0.813rem] py-[1px] text-body-color whitespace-nowrap">
-												<svg class="inline-block" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<rect width="10" height="10" rx="3" fill="#3AC977"/>
-												</svg>
-												Compete
-											</li>
-											<li class="text-[0.813rem] py-[1px] text-body-color">
-												<svg class="inline-block" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<rect width="10" height="10" rx="3" fill="var(--primary)"/>
-												</svg>
-												Pending
-											</li>
-											<li class="text-[0.813rem] py-[1px] text-body-color">
-												<svg class="inline-block" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<rect width="10" height="10" rx="3" fill="var(--secondary)"/>
-												</svg>
-												Not Start
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="xl:w-1/2 col-xxl-12">
-						<div class="card">
-							<div class="card-body p-0">
-								<div class="overflow-x-auto active-projects">
-									<div class="sm:p-5 p-4">
-										<h4 class="text-base">Active Projects</h4>
-									</div>
-									<table id="projects-tbl" class="table">
-										<thead>
-											<tr>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-left">Project Name</th>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-left">Project Lead</th>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-left">Progress</th>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-left">Assignee</th>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-left">Status</th>
-												<th class="bg-primary-light text-[13px] py-2.5 px-5 text-primary capitalize font-medium bg-none whitespace-nowrap text-right">Due Date</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Batman</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Liam Risher</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-primary" style="width:53%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-primary">53%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Bender Project</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic2.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Oliver Noah</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-danger" style="width:30%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-danger">30%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-danger bg-danger-light">Pending</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Canary</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic888.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Elijah James</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-success" style="width:40%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-success">40%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-success bg-success-light dark:text-white dark:bg-[#3a9b941a]">Completed</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Casanova</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">William Risher</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-primary" style="width:53%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-primary">53%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Bigfish</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic777.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Donald Benjamin</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-danger" style="width:30%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-danger">30%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic777.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-danger bg-danger-light">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Matadors</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic888.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Liam Risher</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-primary" style="width:53%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-primary">53%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic777.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Mercury</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic2.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Oliver Noah</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-danger" style="width:30%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-danger">30%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic777.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-danger bg-danger-light">Pending</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Whistler</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic999.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Elijah James</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-success" style="width:40%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-success">40%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-success bg-success-light dark:text-white dark:bg-[#3a9b941a]">Completed</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Time Projects</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic2.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">Lucas</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-danger" style="width:33%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-primary">33%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic999.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 pl-4 pr-0 whitespace-nowrap">Fast Ball</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<div class="flex items-center">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] min-w-[1.875rem] h-[1.875rem] rounded-full relative object-cover" alt="">
-														<p class="ml-2 dark:text-white text-[13px]">William Risher</p>	
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="flex items-center">
-														<div class="progress bg-[#f6f6f6] dark:bg-[#151C2C] mr-[5px] h-[5px] overflow-hidden flex-1">
-															<div class="progress-bar bg-primary" style="width:53%; height:5px; border-radius:4px;" role="progressbar"></div>
-														</div>
-														<span class="text-primary">53%</span>
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<div class="avatar-list avatar-list-stacked">
-														<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-														<img src="assets/images/contacts/pic999.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-													</div>
-												</td>
-												<td class="border-b border-b-color text-[13px] py-2.5 pl-4 pr-0 font-normal">
-													<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-												</td>
-												<td class="border-b border-b-color text-[13px] font-normal py-2.5 px-5 whitespace-nowrap text-body-color">
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											
-										</tbody>
-										
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="xl:w-1/2 col-xxl-8 lg:w-7/12">
-						<div class="card h-auto">
-							<div class="card-header text-center flex justify-between sm:pt-6 pb-4 py-5 sm:px-5 px-4 items-center relative flex-wrap">
-								<h4 class="text-base">Running Projects</h4>
-								<a href="javascript:void(0)" class="py-[5px] px-3 text-[13px] rounded text-white bg-primary leading-[18px] inline-block border border-primary btn-sm duration-500 hover:bg-hover-primary hover:border-hover-primary">View All</a>
-							</div>
-							<div class="sm:p-5 p-4 sm:pt-0 pt-0 flex-auto">
-								<div class="swiper mySwiper">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="card mb-0 ">
-												<div class="sm:p-5 p-4">
-													<div class="card-media">
-														<img src="assets/images/p1.gif" alt="" class="h-[140px] w-full rounded-lg">
-													</div>
-													<div class="media-data">
-														<h4 class="my-2.5 text-[15px] font-semibold"><a href="project.html" class="text-dark">Development planning</a></h4>
-														<div class="flex items-center">
-															<div class="avatar-list avatar-list-stacked">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															</div>
-															<span class="max-xl:ml-5 ml-[25px] text-[13px] text-dark">21+ Team</span>
-														</div>
-														<div class="dateformat flex justify-between items-end mt-2.5">
-															<div>
-																<p class="text-dark text-[13px] font-medium">Due Date</p>
-																<span class="text-primary text-[13px] font-medium">06 Sep 2021</span>
-															</div>
-															<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-danger bg-danger-light">Pending</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="card mb-0 ">
-												<div class="sm:p-5 p-4">
-													<div class="card-media">
-														<img src="assets/images/p3.gif" alt="" class="h-[140px] w-full rounded-lg">
-													</div>
-													<div class="media-data">
-														<h4 class="my-2.5 text-[15px] font-semibold"><a href="project.html" class="text-dark">Desinging planning</a></h4>
-														<div class="flex items-center">
-															<div class="avatar-list avatar-list-stacked">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															</div>
-															<span class="max-xl:ml-5 ml-[25px] text-[13px] text-dark">21+ Team</span>
-														</div>
-														<div class="dateformat flex justify-between items-end mt-2.5">
-															<div>
-																<p class="text-dark text-[13px] font-medium">Due Date</p>
-																<span class="text-primary text-[13px] font-medium">06 Sep 2021</span>
-															</div>
-															<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-info bg-info-light">Inprogress</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="card mb-0 ">
-												<div class="sm:p-5 p-4">
-													<div class="card-media">
-														<img src="assets/images/p.gif" alt="" class="h-[140px] w-full rounded-lg">
-													</div>
-													<div class="media-data">
-														<h4 class="my-2.5 text-[15px] font-semibold"><a href="project.html" class="text-dark">Frontend Designing</a></h4>
-														<div class="flex items-center">
-															<div class="avatar-list avatar-list-stacked">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															</div>
-															<span class="max-xl:ml-5 ml-[25px] text-[13px] text-dark">21+ Team</span>
-														</div>
-														<div class="dateformat flex justify-between items-end mt-2.5">
-															<div>
-																<p class="text-dark text-[13px] font-medium">Due Date</p>
-																<span class="text-primary text-[13px] font-medium">06 Sep 2021</span>
-															</div>
-															<span class="text-xs py-[5px] px-3 rounded leading-[1.5] text-warning bg-warning-light">Inprogress</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="card mb-0 ">
-												<div class="sm:p-5 p-4">
-													<div class="card-media">
-														<img src="assets/images/p2.gif" alt="" class="h-[140px] w-full rounded-lg">
-													</div>
-													<div class="media-data">
-														<h4 class="my-2.5 text-[15px] font-semibold">Compete this projects Monday</h4>
-														<div class="flex items-center">
-															<div class="avatar-list avatar-list-stacked">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic555.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic1.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-																<img src="assets/images/contacts/pic666.jpg" class="inline-block w-[1.875rem] h-[1.875rem] me-[-13px] rounded-full border-2 border-white dark:border-[#182237] relative object-cover duration-300 hover:z-[1]" alt="">
-															</div>
-															<span class="max-xl:ml-5 ml-[25px] text-[13px] text-dark">21+ Team</span>
-														</div>
-														<div class="dateformat flex justify-between items-end mt-2.5">
-															<div>
-																<p class="text-dark text-[13px] font-medium">Due Date</p>
-																<span class="text-primary text-[13px] font-medium">06 Sep 2021</span>
-															</div>
-															<span class="bg-primary-light text-primary text-xs py-[5px] px-3 rounded leading-[1.5]">Inprogress</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
+				
+					
 				</div>
 			</div>
         </div>
-         <!-- Content body end -->
 		 
         
 
-	</div>
+
     <!-- Main wrapper end -->
 	<?php include('incs/admin_footer.php'); ?>
