@@ -134,7 +134,7 @@
 										</div>	
 									</div>
 									<div class="xl:w-1/4 sm:w-1/2 w-full">
-										<div class="card bg-success rainbow-box relative z-[1] flex flex-col" style="background-image: url(assets/images/rainbow.gif);background-size: cover;background-blend-mode: luminosity;">
+									<div class="card bg-success rainbow-box relative z-[1] flex flex-col" style="background-image: url(<?php echo base_url('assets/images/rainbow.gif');?>); background-size: cover; background-blend-mode: luminosity;">
 											
 											<div class="sm:p-5 p-4 sm:pt-0 pt-0 flex-auto">
 												<div class="finance"> 
