@@ -312,8 +312,8 @@
 					</li>
 				</ul>
 				<div class="copyright mb-8 mt-[1.2rem] px-4">
-					<p class="mb-[6px] text-[0.775rem]">Yash Admin Sales Management System © <span class="current-year">2024</span> All Rights Reserved</p>
-					<p class="mb-[6px] text-[0.775rem]">Made with <span class="heart inline-block w-[60px] h-[60px] cursor-pointer"></span> by DexignZone</p>
+					
+					<p class="mb-[6px] text-[0.775rem]">Made with Brainsoft</p>
 				</div>
 			</div>
         </div>	
