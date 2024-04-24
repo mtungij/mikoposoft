@@ -139,9 +139,11 @@ class Admin extends CI_Controller {
 		$comp_id = $this->session->userdata('comp_id');
 		$comp_data = $this->queries->get_companyDataProfile($comp_id);
 		$region = $this->queries->get_region();
-		  //  echo "<pre>";
-		  // print_r($region);
-		  //     exit();
+
+		
+		//    echo "<pre>";
+		//   print_r($comp_data);
+		//       exit();
 		$this->load->view('admin/company_profile',['comp_data'=>$comp_data,'region'=>$region]);
 	}
 
@@ -185,7 +187,7 @@ class Admin extends CI_Controller {
            $data = $this->queries->update_company_Data($data,$comp_id);
             //Storing insertion status message.
             if($data){
-            	$this->session->set_flashdata('massage','Company_profile Updated successfully');
+            	$this->session->set_flashdata('succcess','Company_profile Updated successfully');
                }else{
                 $this->session->set_flashdata('error','Data failed!!');
             }
@@ -204,19 +206,18 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('newpass', 'new password', 'required');
         $this->form_validation->set_rules('passconf', 'confirm password', 'required|matches[newpass]');
 
-        $this->form_validation->set_error_delimiters('<strong><div class="text-danger">', '</div></strong>');
-
+       
         if($this->form_validation->run()) {
         	$data = $this->input->post();
         	$oldpass = $data['oldpass'];
         	$newpass = $data['newpass'];
         	$passconf = $data['passconf'];
-        	    //print_r(sha1($newpass));
-        	       // echo "<br>";
-        	       // print_r($oldpass);
-        	       //  echo "<br>";
-        	       // print_r($old);
-        	       //    exit();
+        	    print_r(sha1($newpass));
+        	       echo "<br>";
+        	       print_r($oldpass);
+        	        echo "<br>";
+        	       print_r($old);
+        	          exit();
            if($old !== sha1($oldpass)){
            $this->session->set_flashdata('error','Old Password not Match') ; 
              return redirect('admin/company_profile');
@@ -8744,9 +8745,9 @@ public function profile()
 	 // print_r($blanch);
 	 //     exit();
 
-		// echo "<pre>";
-		// print_r($blanch );
-		// exit();
+		echo "<pre>";
+		print_r($blanch );
+		exit();
 
 		$this->load->view('admin/profile' );
 		;

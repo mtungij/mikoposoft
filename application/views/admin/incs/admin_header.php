@@ -39,36 +39,50 @@
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/favicon.png'); ?>">
 
-	<h!-<!-- ICONS -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/icons/fontawesome/css/all.min.css'); ?>">
-		<link rel="stylesheet" href="<?php echo base_url('assets/icons/line-awesome/css/line-awesome.min.css'); ?>">
+	
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="<?php echo base_url('assets/icons/fontawesome/css/all.min.css'); ?>">
 
+<!-- Line Awesome -->
+<link rel="stylesheet" href="<?php echo base_url('assets/icons/line-awesome/css/line-awesome.min.css'); ?>">
 
-		<!-- flowbite -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/flowbite.css'); ?>">
+<!-- Tagify CSS -->
+<link href="<?php echo base_url('assets/vendor/tagify/dist/tagify.css'); ?>" rel="stylesheet">
 
-		<!-- NICE SELECT -->
-		<!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/niceselect/css/nice-select.css'); ?>"> -->
+<!-- Nice Select CSS -->
+<link href="<?php echo base_url('assets/vendor/niceselect/css/nice-select.css'); ?>" rel="stylesheet">
 
-		<!-- STYLESHEETS -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-		<link href="<?php echo base_url('assets/vendor/powerful-calendar/style.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('assets/vendor/powerful-calendar/theme.css'); ?>" rel="stylesheet">
+<!-- Light Gallery CSS -->
+<link href="<?php echo base_url('assets/vendor/lightgallery/dist/css/lightgallery.css'); ?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/vendor/lightgallery/dist/css/lg-thumbnail.css'); ?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/vendor/lightgallery/dist/css/lg-zoom.css'); ?>" rel="stylesheet">
 
-		<link href="<?php echo base_url('assets/vendor/datatables/css/jquery.dataTables.min.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('assets/vendor/swiper/css/swiper-bundle.min.css'); ?>" rel="stylesheet">
+<!-- Flowbite -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/flowbite.css'); ?>">
 
-		<!-- toast -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/css/toastr.min.css'); ?>">
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+<!-- Powerful Calendar -->
+<link href="<?php echo base_url('assets/vendor/powerful-calendar/style.css'); ?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/vendor/powerful-calendar/theme.css'); ?>" rel="stylesheet">
 
-		<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<!-- DataTables -->
+<link href="<?php echo base_url('assets/vendor/datatables/css/jquery.dataTables.min.css'); ?>" rel="stylesheet">
 
-		<!-- STYLE CSS -->
-		<link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+<!-- Swiper -->
+<link href="<?php echo base_url('assets/vendor/swiper/css/swiper-bundle.min.css'); ?>" rel="stylesheet">
+
+<!-- Toastr -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/css/toastr.min.css'); ?>">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+<!-- Custom Styles -->
+<link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+
 		<link href="https://cdn.tailwindcss.com" rel="stylesheet">
 
 </head>
@@ -1230,7 +1244,7 @@
 												</div>
 												<div
 													class="card-body sm:py-2 border-b border-[#E6E6E6] dark:border-[#ffffff1a]">
-													<a href="app-profile-1.html"
+													<a href="<?php echo base_url("admin/company_profile"); ?>"
 														class="dropdown-item py-[0.6rem] px-[1.25rem] block w-full ai-icon hover:bg-primary-light group">
 														<svg class="inline-block" width="20" height="20"
 															viewBox="0 0 24 24" fill="none"

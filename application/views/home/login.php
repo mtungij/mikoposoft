@@ -120,12 +120,12 @@
 										<?php echo form_open("welcome/signin") ?>
 											<div class="mb-4">
 												<label class="mb-1 form-label">Phone Number</label>
-												<input type="number" name="comp_phone" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Enter Phone Number">
+												<input type="number" name="comp_phone" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Enter Phone Number" required>
 											</div>
 											
 											<div class="mb-4 relative">
 												<label class="form-label" for="dz-password">Password</label>
-												<input type="password" name="password" id="dz-password" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" value="123456">
+												<input type="password" name="password" id="dz-password" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" value="123456" required>
 												<span class="show-pass eye absolute right-5 bottom-2.5 text-body-color text-sm">
 													<i class="fa fa-eye-slash"></i>
 													<i class="fa fa-eye"></i>
