@@ -116,9 +116,7 @@
                                          
                                             <div id="tab-three" class="tab-content">
                                                 <div class="pt-4">
-                                                <?php
-                                                  $this->load->view('toast');
-                                                   ?>
+                                                
                                                     <div class="settings-form">
                                                         <h4 class="text-primary text-lg mb-2">Password Change</h4>
                                                         <?php echo form_open("admin/change_password"); ?>
