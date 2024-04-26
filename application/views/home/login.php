@@ -56,7 +56,7 @@
 
 	
 </head>
-<body class="h-[100vh] selection:text-white selection:bg-primary" style="background-image:url('assets/images/bg.png'); background-position:center;">
+<body class="h-[100vh] selection:text-white selection:bg-primary" style="background-image:url('assets/images/finance.jpg'); background-position:center;">
 		<div class="authincation fix-wrapper bg-primary-light min-h-screen flex py-[30px] items-center">
 			<div class="container h-full">
 				<div class="row justify-center h-full items-center">
@@ -125,11 +125,8 @@
 											
 											<div class="mb-4 relative">
 												<label class="form-label" for="dz-password">Password</label>
-												<input type="password" name="password" id="dz-password" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" value="123456" required>
-												<span class="show-pass eye absolute right-5 bottom-2.5 text-body-color text-sm">
-													<i class="fa fa-eye-slash"></i>
-													<i class="fa fa-eye"></i>
-												</span>
+												<input type="password" name="password" id="dz-password" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full"  placeholder="******" required>
+												
 											</div>
 											
 											<div class="text-center">

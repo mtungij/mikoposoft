@@ -8,74 +8,28 @@
         <!-- Footer end -->
 
  
-       
-
-<script src="<?php echo base_url('assets/js/flowbite.js'); ?>"></script>
-<!-- Required vendors -->
-<script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/chart.js/chart.bundle.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/apexchart/apexchart.js'); ?>"></script>
-
-<!-- Select2 -->
-
-
-<!-- Nice Select -->
 <script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script>
-
-<!-- Custom Scripts -->
-<script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/deznav-init.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
-<!-- Dashboard specific scripts -->
-<script src="<?php echo base_url('assets/js/dashboard/dashboard-1.js'); ?>"></script>
+<script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/draggable/draggable.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/swiper/js/swiper-bundle.min.js'); ?>"></script>
-
-<!-- DataTables -->
 <script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.buttons.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/datatables/js/buttons.html5.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/datatables/js/jszip.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/plugins-init/datatables.init.js'); ?>"></script>
-
-<!-- Powerful Calendar -->
 <script src="<?php echo base_url('assets/vendor/powerful-calendar/calendar.min.js'); ?>"></script>
-
-
-<!-- Nice Select -->
-<script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script>
-
-<!-- Custom Scripts -->
-<script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/deznav-init.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
-<!-- Dashboard specific scripts -->
-<script src="<?php echo base_url('assets/js/dashboard/dashboard-1.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/draggable/draggable.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/swiper/js/swiper-bundle.min.js'); ?>"></script>
-
-<!-- DataTables -->
-<script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.buttons.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/buttons.html5.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/jszip.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/plugins-init/datatables.init.js'); ?>"></script>
-
-<!-- Global JS files -->
-<script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/chart.js/chart.bundle.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/lightgallery/dist/lightgallery.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/lightgallery/dist/plugins/zoom/lg-zoom.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script> <!-- nice-select -->
-
-<!-- Custom JS files -->
 <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/deznav-init.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/dashboard/dashboard-1.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/plugins-init/datatables.init.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/styleSwitcher.js'); ?>"></script>
+
 
 <!-- Powerful Calendar -->
 <script src="<?php echo base_url('assets/vendor/powerful-calendar/calendar.min.js'); ?>"></script>

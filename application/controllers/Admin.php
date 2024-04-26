@@ -54,14 +54,13 @@ class Admin extends CI_Controller {
 	 $blanch_capital_circle = $this->queries->get_total_blanch_capital($comp_id);
 
 	//  james additional code
-	// $principal_today['today_principal'] = $this->queries-> get_today_principal($comp_id);
-    //       echo "<pre>";
-	// 	  print_r($principal_today);
-	// 	  exit();
+	$comp_data = $this->queries->get_companyDataProfile($comp_id);
 
-	      // print_r($blanch_capital_circle);
-	      //         exit();
-	$this->load->view('admin/index',['receivable_total'=>$receivable_total,'total_received'=>$total_received,'total_loan_pending'=>$total_loan_pending,'total_loanWithdrawal'=>$total_loanWithdrawal,'today_penart'=>$today_penart,'prepaid_today'=>$prepaid_today,'total_received'=>$total_received,'prepaid_today'=>$prepaid_today,'total_loan_fee'=>$total_loan_fee,'today_income'=>$today_income,'toay_expences'=>$toay_expences,'total_capital'=>$total_capital,'out_float'=>$out_float,'cash_bank'=>$cash_bank,'principal_loan'=>$principal_loan,'done_loan'=>$done_loan,'total_expect'=>$total_expect,'total_receved'=>$total_receved,'cash_depost'=>$cash_depost,'cash_income'=>$cash_income,'cash_expences'=>$cash_expences,'blanch'=>$blanch,'total_remain'=>$total_remain,'today_total_loan_pend'=>$today_total_loan_pend,'loanAprove'=>$loanAprove,'withdrawal'=>$withdrawal,'loan_depost'=>$loan_depost,'receive_Amount'=>$receive_Amount,'loan_fee'=>$loan_fee,'request_expences'=>$request_expences,'sum_comp_capital'=>$sum_comp_capital,'total_deducted_balance'=>$total_deducted_balance,'total_non'=>$total_non,'blanch_capital_circle'=>$blanch_capital_circle]);
+	// echo "<pre>";
+	// print_r($comp_data);
+	// echo "<pre>";
+	
+	$this->load->view('admin/index',['receivable_total'=>$receivable_total,'comp_data' => $comp_data,'total_received'=>$total_received,'total_loan_pending'=>$total_loan_pending,'total_loanWithdrawal'=>$total_loanWithdrawal,'today_penart'=>$today_penart,'prepaid_today'=>$prepaid_today,'total_received'=>$total_received,'prepaid_today'=>$prepaid_today,'total_loan_fee'=>$total_loan_fee,'today_income'=>$today_income,'toay_expences'=>$toay_expences,'total_capital'=>$total_capital,'out_float'=>$out_float,'cash_bank'=>$cash_bank,'principal_loan'=>$principal_loan,'done_loan'=>$done_loan,'total_expect'=>$total_expect,'total_receved'=>$total_receved,'cash_depost'=>$cash_depost,'cash_income'=>$cash_income,'cash_expences'=>$cash_expences,'blanch'=>$blanch,'total_remain'=>$total_remain,'today_total_loan_pend'=>$today_total_loan_pend,'loanAprove'=>$loanAprove,'withdrawal'=>$withdrawal,'loan_depost'=>$loan_depost,'receive_Amount'=>$receive_Amount,'loan_fee'=>$loan_fee,'request_expences'=>$request_expences,'sum_comp_capital'=>$sum_comp_capital,'total_deducted_balance'=>$total_deducted_balance,'total_non'=>$total_non,'blanch_capital_circle'=>$blanch_capital_circle]);
 	}
 
 
@@ -183,15 +182,15 @@ class Admin extends CI_Controller {
             //  echo "</pre>";
             //   exit();
 
-           $this->load->model('queries'); 
-           $data = $this->queries->update_company_Data($data,$comp_id);
-            //Storing insertion status message.
-            if($data){
-            	$this->session->set_flashdata('succcess','Company_profile Updated successfully');
-               }else{
-                $this->session->set_flashdata('error','Data failed!!');
-            }
-            return redirect('admin/company_profile/');
+			$this->load->model('queries'); 
+			$data = $this->queries->update_company_Data($data,$comp_id);
+			 //Storing insertion status message.
+			 if($data){
+				 $this->session->set_flashdata('massage','Company Details Updated successfully');
+				}else{
+				 $this->session->set_flashdata('error','Data failed!!');
+			 }
+			 return redirect('admin/company_profile/');
 
 	}
 
@@ -212,24 +211,25 @@ class Admin extends CI_Controller {
         	$oldpass = $data['oldpass'];
         	$newpass = $data['newpass'];
         	$passconf = $data['passconf'];
-        	    print_r(sha1($newpass));
-        	       echo "<br>";
-        	       print_r($oldpass);
-        	        echo "<br>";
-        	       print_r($old);
-        	          exit();
+        	    // print_r(sha1($newpass));
+        	    //    echo "<br>";
+        	    //    print_r($oldpass);
+        	    //     echo "<br>";
+        	    //    print_r($old);
+        	    //       exit();
+			$this->session->set_flashdata('successpass','Password changed successfully') ; 
            if($old !== sha1($oldpass)){
-           $this->session->set_flashdata('error','Old Password not Match') ; 
+           $this->session->set_flashdata('errorpass','Old Password not Match') ; 
              return redirect('admin/company_profile');
          }elseif($old == sha1($oldpass)){
          $this->queries->update_password_data($comp_id, array('password' => sha1($newpass)));
-         $this->session->set_flashdata('massage','Password changed successfully'); 
+         $this->session->set_flashdata('success','Password changed successfully'); 
         $comp_data = $this->queries->get_companyDataProfile($comp_id);
         $this->load->view("admin/company_profile",['comp_data'=>$comp_data]);
         
           }else{
           	$comp_data = $this->queries->get_companyDataProfile($comp_id);
-        $this->load->view("admin/company_profile",['comp_data'=>$comp_data]);
+            $this->load->view("admin/company_profile",['comp_data'=>$comp_data]);
           }
         }
         }
@@ -288,30 +288,74 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/blanch',['blanch'=>$blanch,'region'=>$region]);
 	}
 
-	public function  create_blanch(){
-		$this->form_validation->set_rules('comp_id','company','required');
-		$this->form_validation->set_rules('region_id','Region','required');
-		$this->form_validation->set_rules('blanch_name','blanch name','required');
-		$this->form_validation->set_rules('blanch_no','blanch','required');
-		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+	// public function  create_blanch(){
+	// 	$this->form_validation->set_rules('comp_id','company','required');
+	// 	$this->form_validation->set_rules('region_id','Region','required');
+	// 	$this->form_validation->set_rules('blanch_name','blanch name','required');
+	// 	$this->form_validation->set_rules('blanch_no','blanch','required');
+	// 	$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+	// 	if ($this->form_validation->run()) {
+	// 		$data = $this->input->post();
+	// 		 print_r($data);
+	// 		   exit();
+	// 		$this->load->model('queries');
+	// 		if ($this->queries->insert_blanch($data)) {
+	// 			 $this->session->set_flashdata('massage','Blanch saved successfully');
+
+	// 			 return redirect('admin/blanch');
+	// 		}else{
+	// 			 $this->session->set_flashdata('error','Failed');
+	// 			 return redirect('admin/create_branch');
+
+	// 		}
+	public function create_blanch() {
+		$this->form_validation->set_rules('comp_id', 'company', 'required');
+		$this->form_validation->set_rules('region_id', 'Region', 'required');
+		$this->form_validation->set_rules('branch_name', 'branch name', 'required');
+		$this->form_validation->set_rules('branch_no', 'branch', 'required');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+	
 		if ($this->form_validation->run()) {
-			$data = $this->input->post();
-			 // print_r($data);
-			 //   exit();
-			$this->load->model('queries');
-			if ($this->queries->insert_blanch($data)) {
-				 $this->session->set_flashdata('massage','Blanch saved successfully');
-
-				 return redirect('admin/blanch');
-			}else{
-				 $this->session->set_flashdata('error','Failed');
-				 return redirect('admin/create_branch');
-
-			}
+			$branch_name = $this->input->post('branch_name');
+			$branch_no = $this->input->post('branch_no');
+	
+			// Check if branch name already exists
+			$this->load->database();
+			$this->db->where('branch_name', $branch_name);
+			$query = $this->db->get('tbl_branch');
 			
+			if ($query->num_rows() > 0) {
+				// Branch name already exists
+				$this->session->set_flashdata('error', 'Branch name already exists');
+				$this->load->view('admin/blanch');
+			} else {
+				// Proceed with insertion
+				$data = array(
+					'comp_id' => $this->input->post('comp_id'),
+					'region_id' => $this->input->post('region_id'),
+					'branch_name' => $branch_name,
+					'branch_no' => $branch_no
+				);
+	
+				// Insert data into the database using Active Record
+				if ($this->db->insert('tbl_branch', $data)) {
+					$this->session->set_flashdata('message', 'Branch saved successfully');
+					$this->load->view('admin/blanch');
+				} else {
+					$this->session->set_flashdata('error', 'Failed');
+					$this->load->view('admin/blanch');
+				}
+			}
+		} else {
+			$this->session->set_flashdata('validation_errors', $this->form_validation->error_array());
+			$this->load->view('admin/blanch');
 		}
-		
 	}
+	
+			
+		
+		
+	
 
 	public function shareHolder(){
 		$this->load->model('queries');
@@ -8724,14 +8768,7 @@ if (!$this->session->userdata("comp_id"))
 	return redirect("welcome/login");
 }
 
-public function create_branch()
-{
-	     $this->load->model('queries');
-		 $comp_id = $this->session->userdata('comp_id');
-		 $blanch = $this->queries->get_blanch($comp_id);
-		 $region = $this->queries->get_region();
-		 $this->load->view('admin/create_branch',['blanch'=>$blanch,'region'=>$region]);
-}
+
 
 
 

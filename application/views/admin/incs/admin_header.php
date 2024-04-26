@@ -1233,7 +1233,7 @@
 												<div
 													class="card-header relative flex items-center justify-between bg-transparent py-2 sm:px-[1.25rem] px-4 border-b border-[#E6E6E6] dark:border-[#ffffff1a]">
 													<div class="flex items-center">
-														<img src="assets/images/user.jpg"
+														<img src=""
 															class="avatar avatar-md mr-2.5 h-[2.813rem] w-[2.813rem] inline-block object-cover rounded-md"
 															alt="">
 														<div>
@@ -1260,7 +1260,7 @@
 														</svg>
 
 														<span
-															class="ml-2 text-[13px] text-body-color group-hover:text-primary">Profile
+															class="ml-2 text-[13px] text-body-color group-hover:text-primary">Company Profile
 														</span>
 													</a>
 													<a href="my-project.html"

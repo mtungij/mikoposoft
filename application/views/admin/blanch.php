@@ -812,191 +812,197 @@
         <!-- Header end -->
 
 <?php include('incs/admin_sidebar.php'); ?>
-
-
-
-
 <div class="content-body">
+<div class=" w-full">
 
-<div class="Tailwind-modal">
-<button type="button" class="btn btn-primary sm:py-[0.719rem] ml-5  px-4 sm:px-[1.563rem] py-5 sm:text-[15px] text-xs font-medium rounded text-white bg-primary leading-5 inline-block border border-primary duration-500 hover:bg-hover-primary hover:border-hover-primary dz-modal-btn mb-2" data-dz-modal="exampleModalCenter">+ Add New Branch</button>
-                                    <!-- Modal -->
-                                    <div class="modal fade fixed top-0 right-0 overflow-y-auto overflow-x-hidden dz-scroll w-full h-full z-[1055]  dz-modal-box model-close" id="exampleModalCenter">
-                                        <div class="modal-dialog modal-dialog-centered h-full flex items-center py-5" role="document">
-                                            <div class="modal-content flex flex-col relative rounded-md bg-white dark:bg-[#182237] w-full pointer-events-auto">
-                                                <div class="modal-header flex justify-between items-center flex-wrap py-4 px-[1.875rem] relative z-[2] border-b border-b-color">
-                                                    <h5 class="modal-title">Create New Branch</h5>
-                                                    <button type="button" class="btn-close p-4 text-xs">
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body relative p-[1.875rem] text-body-color sm:text-sm text-xs">
-                                                <div class=" w-full">
-                                              
-                                                
-                                                <div class="sm:p-5 p-4">
-                                                    <div class="basic-form">
-                                                        <form action="<?php echo base_url("admin/create_blanch") ?>" method="POST">
-                                                           
-                                                            <div class="mb-4">
-                                                                <input type="text" name="blanch_name" class="form-control relative text-[13px] h-[2.813rem] border border-b-color block py-1.5 px-3 duration-500  outline-none w-full rounded-[6.25rem]" placeholder="Branch Name">
-                                                            </div>
-                                                            
-                                                            
-                                                           
-                                                             
-                                                            
+     <div class="card z-auto">
+                            <div class="card-header flex flex-wrap justify-between items-center sm:p-5 sm:pt-6 p-4 pt-5 max-sm:pb-5 relative z-[2] border-b border-[#E6E6E6] dark:border-[#ffffff1a]">
+                                <h4 class="card-title text-base capitalize">Create Company Branch</h4>
 
-                                                            <div class="modal-footer py-4 px-[1.875rem] flex items-center justify-end flex-wrap border-t border-b-color">
-                                                    <button type="button" class="btn btn-danger sm:py-[0.719rem] px-4 sm:px-[1.563rem] py-2.5 sm:text-[15px] text-xs font-medium rounded text-danger bg-danger-light leading-5 inline-block border border-danger-light duration-500 hover:bg-danger hover:border-danger-light hover:text-white m-1 close-btn">Close</button>
-                                                    <button type="submit" class="btn btn-primary sm:py-[0.719rem] px-4 sm:px-[1.563rem] py-2.5 sm:text-[15px] text-xs font-medium rounded text-white bg-primary leading-5 inline-block border border-primary duration-500 hover:bg-hover-primary hover:border-hover-primary m-1 save-btn">Save</button>
-                                                </div>
-                                                        </form>
-                                                    </div>
-                       
-                                                    </div>
-                                                </div>
-                                         </div>
-                                                
+								<?php
+									$input_data = $this->session->flashdata('input_data');
+									$validation_errors = $this->session->flashdata('validation_errors');
+								?>
+                            </div>
+                            <div class="sm:p-5 p-4">
+                                <div class="basic-form">
+								<?php echo form_open("admin/create_blanch");?>
+
+									<div class="grid grid-cols-3 gap-2">
+                                            <div>
+                                                <label class="form-label text-body-color dark:text-white">Branch Name</label>
+                                                <input type="text" name="blanch_name" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Branch Name">
+												<?php if (!empty($validation_errors['blanch_name'])) : ?>
+                                                             <div class="text-red-500"><?php echo $validation_errors['blanch_name']; ?></div>
+                                                <?php endif; ?>
                                             </div>
+                                            <div>
+                                                <label class="form-label text-body-color dark:text-white">Phone Number</label>
+                                                <input type="text" name="blanch_no" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Branch Phone" >
+												<?php if (!empty($validation_errors['blanch_no'])) : ?>
+                                                             <div class="text-red-500"><?php echo $validation_errors['blanch_no']; ?></div>
+                                                <?php endif; ?>
+                                            </div>
+
+											
+                                        
+											<div>
+                                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Region</label>
+											<select id="countries" name="region_id" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full">
+												<?php foreach ($region as $regions): ?>
+													<option value="<?php echo $regions->region_id; ?>"><?php echo $regions->region_name; ?></option>
+												<?php endforeach; ?>
+                                           	 </select> 
+												<?php if (!empty($validation_errors['region_id'])) : ?>
+                                                             <div class="text-red-500"><?php echo $validation_errors['region_id']; ?></div>
+                                                <?php endif; ?>
                                         </div>
-                                    </div>
+                                            
+                                        </div>
+
+										<input type="hidden" name="comp_id" value="<?php echo $_SESSION['comp_id']; ?>">
+
+                                        
+                                       
+										<div class="flex justify-center">
+                                            <button type="submit" class="inline-block rounded font-medium mt-3 mb-3 text-[15px] max-xl:text-xs leading-5 py-[0.719rem] max-xl:px-4 px-[1.563rem] max-xl:py-2.5 border border-primary text-white bg-primary hover:bg-hover-primary hover:border-hover-primary duration-300">Sign in</button>
+                                          </div>
 
 
-
-
-
-			<div class="container-fluid">
-				<div class="row dz-tab-area">
-					
-					<div class="w-full active-p">
-						<div class="tab-content-area">
-							<div class="tab-content show active" id="pills-list">
-								<div class="row">
-                    <?php if (empty($blanch)): ?>
-                      <p>No branches here Create one</p>
-                       <?php else: ?>
-    <?php foreach ($blanch as $branch): ?>
-		<div class="xl:w-1/4 sm:w-1/2 w-full">
-						<div class="card z-auto flex flex-col hover:shadow-[rgba(0,0,0,0.1)_0px_10px_15px_-3px,rgba(0,0,0,0.05)_0px_4px_6px_-2px]">
-						<div class="card-footer flex justify-between flex-wrap border-t border-[#E6E6E6] dark:border-[#ffffff1a] py-4 px-5">
-								<div>
-									<p class="mb-0 text-dark font-medium">Due <span class="font-normal text-dark">: 2024-06-02</span></p>
-								</div class="status-select status-progress nice-select py-[3px] pl-2.5 pr-5 border-0 style-3 justify-end items-center text-xs font-medium">
-								<select >
-								  <a href="">Action</a>
-								  <option value="pending">Pending</option>
-								  <option value="testing">Testing</option>
-								  <option value="complete">Complete</option>
-								</select>
-							</div>
-							
-							<div class="card-body p-5">
-							<div class="text-center">
-                    <div class="w-[120px] m-auto relative crd-bx-img">
-                        <img src="<?php echo base_url('assets/images/branch.png')?>" alt="">
-                    </div>
-                    <div class="card__text">
-                        <h4 class="text-[1.125rem]"><?= $branch->blanch_name ?></h4>
-                        <p class="mb-4 text-sm"><?= $branch->region_name ?></p>
-                    </div>
-                    <ul class="flex items-center justify-center">
-                        <!-- Statistics -->
-                        <li>
-                            <span class="block text-primary text-[1.2rem] 2xl:px-10 px-[25px] font-medium">175</span>
-                            <span class="text-body-color sm:text-sm text-xs">posts</span>
-                        </li>
-                        <li>
-                            <span class="block text-primary text-[1.2rem] 2xl:px-10 px-[25px] font-medium">50</span>
-                            <span class="text-body-color sm:text-sm text-xs">followers</span>
-                        </li>
-                        <li>
-                            <span class="block text-primary text-[1.2rem] 2xl:px-10 px-[25px] font-medium">30</span>
-                            <span class="text-body-color sm:text-sm text-xs">following</span>
-                        </li>
-                    </ul>
-                    
-                    <ul class="text-center m-[18px]">
-                        <!-- Additional Information -->
-                        <li class="sm:text-sm text-xs mb-2.5">
-                            <span class="text-primary">Phone Number: </span>
-                            <span class="text-body-color sm:text-sm text-xs"><?= $branch->blanch_no ?></span>
-                        </li>
-                    </ul>
-                    <div>
-                        <a href="chat.html" class="py-[5px] px-3 text-[13px] rounded text-white bg-success leading-[18px] inline-block border border-primary duration-500 hover:bg-hover-primary hover:border-hover-primary mr-2">Active</a>
-                    </div>
-                </div>
-								
-								
-							
-							</div>
-							
-						</div>
+                                   <?php echo form_close();?>
+                                </div>
+                            </div>
+                        </div>
 					</div>
-    <?php endforeach ?>
-<?php endif ?>
-
-
-
-									
-
-							
-						</div>
-					</div>
-				</div>
+	
+					<div class="w-full">
+						<div class="card">
+							<div class="card-body p-0">
+								<div class="overflow-x-auto active-projects">
+									<div class="sm:p-5 p-4">
+                                        <h4 class="text-base">Company Branch List</h4>
+									</div>
+									<table id="empoloyees-tbl3" class="table w-full">
+										<thead>
+											<tr>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">S/No</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Branch Name</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Branch Phone Number</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Branch Region</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Status</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-right">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php $no = 1; ?>
+										<?php foreach($blanch as $branch): ?>
+											<tr>
+												<td class="text-[13px] font-normal text-body-color py-2.5 pl-4 pr-0 whitespace-nowrap border-b border-[#E6E6E6] dark:border-[#ffffff1a]"><?= $no++ ?></td>
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= $branch->blanch_name?></td>
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= $branch->blanch_no ?></td>
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= $branch->region_name; ?></td> 
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] py-2.5 px-5 whitespace-nowrap"><span class="inline-block leading-[1.5] rounded text-xs py-[5px] px-3 text-white bg-success">Active</span></td>
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-right py-2.5 px-5 whitespace-nowrap">
+												<div class="md:w-1/4 sm:w-1/3 w-1/2">
+		<div class="dropdown custom-dropdown inline-block mb-4">
+			<div class="btn min-w-[2.4rem] p-[0.4375rem] h-[2.4rem] leading-[1.7] min-h-[2.5rem] btn-primary tp-btn ml-4 hover:bg-primary rounded-md dz-dropdown" data-dz-dropdown="dropdown-<?php echo $branch->blanch_id; ?>">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M13.5202 17.4167C13.5202 18.81 12.3927 19.9375 10.9994 19.9375C9.60601 19.9375 8.47852 18.81 8.47852 17.4167C8.47852 16.0233 9.60601 14.8958 10.9994 14.8958C12.3927 14.8958 13.5202 16.0233 13.5202 17.4167ZM9.85352 17.4167C9.85352 18.0492 10.3669 18.5625 10.9994 18.5625C11.6319 18.5625 12.1452 18.0492 12.1452 17.4167C12.1452 16.7842 11.6319 16.2708 10.9994 16.2708C10.3669 16.2708 9.85352 16.7842 9.85352 17.4167Z" fill="var(--primary)"/>
+				<path d="M13.5202 4.58369C13.5202 5.97699 12.3927 7.10449 10.9994 7.10449C9.60601 7.10449 8.47852 5.97699 8.47852 4.58369C8.47852 3.19029 9.60601 2.06279 10.9994 2.06279C12.3927 2.06279 13.5202 3.19029 13.5202 4.58369ZM9.85352 4.58369C9.85352 5.21619 10.3669 5.72949 10.9994 5.72949C11.6319 5.72949 12.1452 5.21619 12.1452 4.58369C12.1452 3.95119 11.6319 3.43779 10.9994 3.43779C10.3669 3.43779 9.85352 3.95119 9.85352 4.58369Z" fill="var(--primary)"/>
+				<path d="M13.5202 10.9997C13.5202 12.393 12.3927 13.5205 10.9994 13.5205C9.60601 13.5205 8.47852 12.393 8.47852 10.9997C8.47852 9.6063 9.60601 8.4788 10.9994 8.4788C12.3927 8.4788 13.5202 9.6063 13.5202 10.9997ZM9.85352 10.9997C9.85352 11.6322 10.3669 12.1455 10.9994 12.1455C11.6319 12.1455 12.1452 11.6322 12.1452 10.9997C12.1452 10.3672 11.6319 9.8538 10.9994 9.8538C10.3669 9.8538 9.85352 10.3672 9.85352 10.9997Z" fill="var(--primary)"/>
+				</svg>
 			</div>
-        </div>
-		 
-        
+			<div class="dz-dropdown-menu absolute translate-x-[-167px] translate-y-2.5 overflow-hidden rounded-md z-[9] bg-white dark:bg-[#182237] shadow-[0_0_3.125rem_0_rgba(82,63,105,0.15)] min-w-[13rem] text-left py-2 hidden" id="dropdown-<?php echo $branch->blanch_id; ?>">
+			<a class="dropdown-item py-2 px-5 text-body-color text-[13px] text-left block w-full whitespace-nowrap hover:bg-[#f8f9fa] hover:text-primary dark:hover:bg-[#151C2C]" href="<?php echo base_url("admin/profile/{$branch->blanch_id}"); ?>">
+			<i class="fa-solid fa-pen-to-square" style="color:blue"></i>
+                      Edit
+			</a>
 
+			<a class="dropdown-item py-2 px-5 text-body-color text-[13px] text-left block w-full whitespace-nowrap hover:bg-[#f8f9fa] hover:text-primary dark:hover:bg-[#151C2C]" href="<?php echo base_url("admin/privillage/{$branch->blanch_id}"); ?>">
+				<i class="fa fa-users text-primary mr-2"></i>
+				View Branch Customer
+			</a>
+
+			<a class="dropdown-item py-2 px-5 text-body-color text-[13px] text-left block w-full whitespace-nowrap hover:bg-[#f8f9fa] hover:text-primary dark:hover:bg-[#151C2C]" href="<?php echo base_url("admin/Unblock_employee/{$branch->blanch_id}") ?>" onclick="return confirm('Are you sure?')">
+			<i class="fa fa-ban text-primary mr-2"></i>
+				Delette
+			</a>
+
+			
+			</div>
+		</div>
 	</div>
-        
-
-<!-- Footer start -->
-<div class="footer dark:bg-[#182237] mt-4 border-t border-b-color dark:border-[#ffffff1a]">
-            <div class="p-[0.9375rem]">
-               <p class="text-center text-[#918f8f] dark:text-[#ffffffb3] text-[0.775rem] leading-[1.8]">Copyright © Developed by <a href="https://dexignzone.com/" target="_blank" class="text-primary">DexignZone</a> 2024</p>
-            </div>
-        </div>
-        <!-- Footer end -->
-
- 
-       
-
-<script src="<?php echo base_url('assets/js/flowbite.js'); ?>"></script>
-<!-- Required vendors -->
-<script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/chart.js/chart.bundle.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/apexchart/apexchart.js'); ?>"></script>
-
-<!-- Select2 -->
+												</td>
+											</tr>
+											<?php endforeach ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
 
 
-<!-- Nice Select -->
-<script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script>
-
-<!-- Custom Scripts -->
-<script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/deznav-init.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
-<!-- Dashboard specific scripts -->
-<script src="<?php echo base_url('assets/js/dashboard/dashboard-1.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/draggable/draggable.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/swiper/js/swiper-bundle.min.js'); ?>"></script>
-
-<!-- DataTables -->
-<script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.buttons.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/buttons.html5.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/datatables/js/jszip.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/plugins-init/datatables.init.js'); ?>"></script>
-
-<!-- Powerful Calendar -->
-<script src="<?php echo base_url('assets/vendor/powerful-calendar/calendar.min.js'); ?>"></script>
 
 
-</body>
+                                    
+                                    
 
-<!-- Mirrored from yashadmin.dexignzone.com/tailwind/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Apr 2024 19:22:38 GMT -->
-</html>
+
+
+
+
+															
+															
+
+															</div>
+
+
+															<!-- Footer start -->
+															<div class="footer dark:bg-[#182237] mt-4 border-t border-b-color dark:border-[#ffffff1a]">
+															<div class="p-[0.9375rem]">
+															<p class="text-center text-[#918f8f] dark:text-[#ffffffb3] text-[0.775rem] leading-[1.8]">Copyright © Developed by <a href="https://dexignzone.com/" target="_blank" class="text-primary">DexignZone</a> 2024</p>
+															</div>
+															</div>
+															<!-- Footer end -->
+
+
+
+
+															<script src="<?php echo base_url('assets/js/flowbite.js'); ?>"></script>
+															<!-- Required vendors -->
+															<script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/chart.js/chart.bundle.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/apexchart/apexchart.js'); ?>"></script>
+
+															<!-- Select2 -->
+
+
+															<!-- Nice Select -->
+															<script src="<?php echo base_url('assets/vendor/niceselect/js/jquery.nice-select.min.js'); ?>"></script>
+
+															<!-- Custom Scripts -->
+															<script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/js/deznav-init.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+
+															<!-- Dashboard specific scripts -->
+															<script src="<?php echo base_url('assets/js/dashboard/dashboard-1.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/draggable/draggable.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/swiper/js/swiper-bundle.min.js'); ?>"></script>
+
+															<!-- DataTables -->
+															<script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.buttons.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/datatables/js/buttons.html5.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/vendor/datatables/js/jszip.min.js'); ?>"></script>
+															<script src="<?php echo base_url('assets/js/plugins-init/datatables.init.js'); ?>"></script>
+
+															<!-- Powerful Calendar -->
+															<script src="<?php echo base_url('assets/vendor/powerful-calendar/calendar.min.js'); ?>"></script>
+
+
+															</body>
+
+															<!-- Mirrored from yashadmin.dexignzone.com/tailwind/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Apr 2024 19:22:38 GMT -->
+															</html>
