@@ -283,7 +283,7 @@ class Admin extends CI_Controller {
 		 $blanch = $this->queries->get_blanch($comp_id);
 		 $region = $this->queries->get_region();
 		//  echo "<pre>";
-		//   print_r($blanch);
+		//   print_r($region);
 		//      exit();
 		$this->load->view('admin/blanch',['blanch'=>$blanch,'region'=>$region]);
 	}
@@ -327,7 +327,7 @@ class Admin extends CI_Controller {
 			if ($query->num_rows() > 0) {
 				// Branch name already exists
 				$this->session->set_flashdata('error', 'Branch name already exists');
-				$this->load->view('admin/blanch');
+				return redirect('admin/blanch');
 			} else {
 				// Proceed with insertion
 				$data = array(
@@ -336,19 +336,23 @@ class Admin extends CI_Controller {
 					'branch_name' => $branch_name,
 					'branch_no' => $branch_no
 				);
-	
+	                 echo "<pre>"; 
+					 print_r($data);
+	                 echo "<pre>"; 
+
+
 				// Insert data into the database using Active Record
 				if ($this->db->insert('tbl_branch', $data)) {
 					$this->session->set_flashdata('message', 'Branch saved successfully');
-					$this->load->view('admin/blanch');
+					return redirect('admin/blanch');
 				} else {
 					$this->session->set_flashdata('error', 'Failed');
-					$this->load->view('admin/blanch');
+					return redirect('admin/blanch');
 				}
 			}
 		} else {
 			$this->session->set_flashdata('validation_errors', $this->form_validation->error_array());
-			$this->load->view('admin/blanch');
+			return redirect('admin/branch'); // Corrected redirection
 		}
 	}
 	

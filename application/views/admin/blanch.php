@@ -810,69 +810,51 @@
 			</div>
 		</div>
         <!-- Header end -->
+		                      
 
 <?php include('incs/admin_sidebar.php'); ?>
 <div class="content-body">
-<div class=" w-full">
-
-     <div class="card z-auto">
-                            <div class="card-header flex flex-wrap justify-between items-center sm:p-5 sm:pt-6 p-4 pt-5 max-sm:pb-5 relative z-[2] border-b border-[#E6E6E6] dark:border-[#ffffff1a]">
-                                <h4 class="card-title text-base capitalize">Create Company Branch</h4>
-
-								<?php
-									$input_data = $this->session->flashdata('input_data');
-									$validation_errors = $this->session->flashdata('validation_errors');
-								?>
-                            </div>
-                            <div class="sm:p-5 p-4">
-                                <div class="basic-form">
-								<?php echo form_open("admin/create_blanch");?>
-
-									<div class="grid grid-cols-3 gap-2">
-                                            <div>
-                                                <label class="form-label text-body-color dark:text-white">Branch Name</label>
-                                                <input type="text" name="blanch_name" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Branch Name">
-												<?php if (!empty($validation_errors['blanch_name'])) : ?>
-                                                             <div class="text-red-500"><?php echo $validation_errors['blanch_name']; ?></div>
-                                                <?php endif; ?>
-                                            </div>
-                                            <div>
-                                                <label class="form-label text-body-color dark:text-white">Phone Number</label>
-                                                <input type="text" name="blanch_no" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" placeholder="Branch Phone" >
-												<?php if (!empty($validation_errors['blanch_no'])) : ?>
-                                                             <div class="text-red-500"><?php echo $validation_errors['blanch_no']; ?></div>
-                                                <?php endif; ?>
-                                            </div>
-
-											
-                                        
-											<div>
-                                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Region</label>
-											<select id="countries" name="region_id" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full">
-												<?php foreach ($region as $regions): ?>
-													<option value="<?php echo $regions->region_id; ?>"><?php echo $regions->region_name; ?></option>
-												<?php endforeach; ?>
-                                           	 </select> 
-												<?php if (!empty($validation_errors['region_id'])) : ?>
-                                                             <div class="text-red-500"><?php echo $validation_errors['region_id']; ?></div>
-                                                <?php endif; ?>
-                                        </div>
-                                            
-                                        </div>
-
-										<input type="hidden" name="comp_id" value="<?php echo $_SESSION['comp_id']; ?>">
-
-                                        
-                                       
-										<div class="flex justify-center">
-                                            <button type="submit" class="inline-block rounded font-medium mt-3 mb-3 text-[15px] max-xl:text-xs leading-5 py-[0.719rem] max-xl:px-4 px-[1.563rem] max-xl:py-2.5 border border-primary text-white bg-primary hover:bg-hover-primary hover:border-hover-primary duration-300">Sign in</button>
-                                          </div>
-
-
-                                   <?php echo form_close();?>
-                                </div>
-                            </div>
-                        </div>
+<div class="w-full">
+<?php if ($this->session->flashdata('message')): ?>
+    <div class="alert alert-success"><?php echo $this->session->flashdata('message'); ?></div>
+<?php endif; ?>
+<?php if ($this->session->flashdata('error')): ?>
+    <div class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></div>
+<?php endif; ?>
+						<div class="card flex flex-col max-sm:mb-[30px] profile-card">
+						<?php echo form_open("admin/create_blanch")?>
+								<div class="sm:p-10 sm:pb-2.5 p-[25px] pb-0">
+									<div class="row">
+										<div class="sm:w-1/2 w-full mb-[30px]">
+											<label class="text-dark dark:text-white text-[13px] mb-2">Branch Name</label>
+											<input type="text" name="blanch_name" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full" >
+										</div>
+										<div class="sm:w-1/2 w-full mb-[30px]">
+											<label class="text-dark dark:text-white text-[13px] mb-2">Branch Phone Number</label>
+											<input type="number" name="blanch_no" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full">
+										</div>
+										<div class="sm:w-1/2 w-full mb-[30px]">
+												
+									<div class="mb-4">
+										<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Region</label>
+										<select id="countries" name="region_id" class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full">
+											<?php foreach ($region as $regions): ?>
+											<option value="<?php echo $regions->region_id; ?>"><?php echo $regions->region_name; ?></option>
+											<?php endforeach; ?>
+										</select>
+									</div>	
+									<input type="hidden" name="comp_id" value="<?php echo $_SESSION['comp_id']; ?>">
+									
+										
+										</div>
+									</div>
+								</div>
+								<div class="sm:py-5 sm:px-10 p-[25px] flex items-center justify-between border-t border-b-color">
+									<button type="submit" class="btn btn-primary sm:py-[0.719rem] py-2.5 sm:px-[1.563rem] px-4 sm:text-[15px] text-[13px] font-medium rounded text-white bg-primary leading-5 inline-block border border-primary duration-500 hover:bg-hover-primary hover:border-hover-primary">Create Branch</button>
+									
+								</div>
+								<?php echo form_close(); ?>
+						</div>
 					</div>
 	
 					<div class="w-full">
