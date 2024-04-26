@@ -56,7 +56,7 @@
 
 	
 </head>
-<body class="h-[100vh] selection:text-white selection:bg-primary" style="background-image:url('assets/images/evamo.jpg'); background-position:center;">
+<body class="h-[100vh] selection:text-white selection:bg-primary" style="background-image:url('assets/images/eva.jpg'); background-position:center;">
 		<div class="authincation fix-wrapper bg-primary-light min-h-screen flex py-[30px] items-center">
 			<div class="container h-full">
 				<div class="row justify-center h-full items-center">
