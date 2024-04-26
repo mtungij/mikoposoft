@@ -67,7 +67,6 @@ class Welcome extends CI_Controller {
 					'comp_phone' => $userexit->comp_phone,
 					'comp_number' => $userexit->comp_number,
 					'comp_name' => $userexit->comp_name,
-					'admin_name' => $userexit->admin_name,
 					'role' => $userexit->role,
 					];
 					// print_r($userexit);
