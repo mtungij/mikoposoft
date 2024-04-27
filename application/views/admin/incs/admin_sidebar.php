@@ -1,7 +1,7 @@
 <div class="deznav">
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
-					<li class="menu-title">YOUR COMPANY</li>
+					
 							<li><a href="<?php echo base_url('admin/index')?>" class="" aria-expanded="false">
 						<div class="menu-icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,14 +32,14 @@
 							
 							<li><a href="<?php echo base_url("admin/blanch"); ?>">Create Branch</a></li>
 							<li><a href="<?php echo base_url("admin/view_blanchEmployee") ?>">Branchwise Employee</a></li>
-							<li><a href="index-4.html">Dashboard 2</a></li>
+							<!-- <li><a href="index-4.html">Dashboard 2</a></li>
 							<li><a href="index-5.html">Dashboard 3</a></li>
 							<li><a href="index-6.html">Dashboard 4</a></li>
 							<li><a href="crm.html">CRM</a></li>
 							<li><a href="analytics.html">Analytics</a></li>
 							<li><a href="products.html">Products</a></li>
 							<li><a href="sales.html">Sales</a></li>
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog.html">Blog</a></li> -->
 						</ul>
 					</li>
 					<!-- <li><a href="" class="" aria-expanded="false">
@@ -73,11 +73,11 @@
 								</defs>
 							</svg>
 						</div>	
-							<span class="nav-text">Projects</span>
+							<span class="nav-text">Register Group Name</span>
 						</a>
 					</li>
-					<li class="menu-title">OUR FEATURES</li>
-					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+					
+					<!-- <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
 						<div class="menu-icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g opacity="0.5">
@@ -89,9 +89,9 @@
 							</svg>
 
 						</div>
-						<span class="nav-text">Apps</span>
-						</a>
-						<ul aria-expanded="false">
+						<span class="nav-text">demo</span>
+						</a> -->
+						<!-- <ul aria-expanded="false">
 							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Users Manager</a>
 								<ul aria-expanded="false">
 									<li><a href="user.html">User</a></li>
@@ -121,7 +121,7 @@
 									<li><a href="ecom-customers.html">Customers</a></li>
 								</ul>
 							</li>
-						</ul>
+						</ul> -->
 					</li>
 					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
 						<div class="menu-icon">
@@ -133,17 +133,15 @@
 								</g>
 							</svg>
 						</div>	
-						<span class="nav-text">CMS</span>
+						<span class="nav-text">Settings</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="content.html">Content</a></li>
-							<li><a href="content-add.html">Add Content</a></li>
-							<li><a href="menu.html">Menus</a></li>	
-							<li><a href="email-template.html">Email Template</a></li>		
-							<li><a href="add-email.html">Add Email</a></li>		
-							<li><a href="cms-blog.html">Blog</a></li>	
-							<li><a href="add-blog.html">Add Blog</a></li>	
-							<li><a href="blog-category.html">Blog Category</a></li>	
+							<li><a href="<?php echo base_url("admin/loan_category"); ?>">Loan Product</a></li>
+							<li><a href="content-add.html">Loan Fee</a></li>
+							<li><a href="<?php echo base_url("admin/penart_setting"); ?>">Penalt Setting</a></li>	
+							<li><a href="<?php echo base_url("admin/formular_setting"); ?>">Interest Setting</a></li>		
+							<li><a href="add-email.html">Payment Settings</a></li>		
+							
 						</ul>
 					</li>
 					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">

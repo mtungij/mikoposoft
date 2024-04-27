@@ -40,6 +40,7 @@
 	<link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/favicon.png'); ?>">
 
 	
+	<script src="<?php echo base_url('assets/js/alpine.js'); ?>"></script>
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo base_url('assets/icons/fontawesome/css/all.min.css'); ?>">
@@ -84,6 +85,8 @@
 <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 
 		<link href="https://cdn.tailwindcss.com" rel="stylesheet">
+
+		
 
 </head>
 

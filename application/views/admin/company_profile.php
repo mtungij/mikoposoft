@@ -163,7 +163,7 @@
                                               
                                             </div>
                                          
-                                            <div id="tab-three" class="tab-content">
+                                            <div id="tab-three" class="tab-content w-full">
                                                 <div class="pt-6">
                                                 
                                                     <div class="settings-form">

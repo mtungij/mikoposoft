@@ -309,51 +309,25 @@ class Admin extends CI_Controller {
 
 	// 		}
 	public function create_blanch() {
-		$this->form_validation->set_rules('comp_id', 'company', 'required');
-		$this->form_validation->set_rules('region_id', 'Region', 'required');
-		$this->form_validation->set_rules('branch_name', 'branch name', 'required');
-		$this->form_validation->set_rules('branch_no', 'branch', 'required');
-		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
-	
+		$this->form_validation->set_rules('comp_id','company','required');
+		$this->form_validation->set_rules('region_id','Region','required');
+		$this->form_validation->set_rules('blanch_name','blanch name','required');
+		$this->form_validation->set_rules('blanch_no','blanch','required');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
 		if ($this->form_validation->run()) {
-			$branch_name = $this->input->post('branch_name');
-			$branch_no = $this->input->post('branch_no');
-	
-			// Check if branch name already exists
-			$this->load->database();
-			$this->db->where('branch_name', $branch_name);
-			$query = $this->db->get('tbl_branch');
-			
-			if ($query->num_rows() > 0) {
-				// Branch name already exists
-				$this->session->set_flashdata('error', 'Branch name already exists');
-				return redirect('admin/blanch');
-			} else {
-				// Proceed with insertion
-				$data = array(
-					'comp_id' => $this->input->post('comp_id'),
-					'region_id' => $this->input->post('region_id'),
-					'branch_name' => $branch_name,
-					'branch_no' => $branch_no
-				);
-	                 echo "<pre>"; 
-					 print_r($data);
-	                 echo "<pre>"; 
+			$data = $this->input->post();
+			 // print_r($data);
+			 //   exit();
+			$this->load->model('queries');
+			if ($this->queries->insert_blanch($data)) {
+				 $this->session->set_flashdata('massage','Blanch saved successfully');
+			}else{
+				 $this->session->set_flashdata('error','Failed');
 
-
-				// Insert data into the database using Active Record
-				if ($this->db->insert('tbl_branch', $data)) {
-					$this->session->set_flashdata('message', 'Branch saved successfully');
-					return redirect('admin/blanch');
-				} else {
-					$this->session->set_flashdata('error', 'Failed');
-					return redirect('admin/blanch');
-				}
 			}
-		} else {
-			$this->session->set_flashdata('validation_errors', $this->form_validation->error_array());
-			return redirect('admin/branch'); // Corrected redirection
+			return redirect('admin/blanch');
 		}
+		$this->blanch();
 	}
 	
 			
@@ -896,7 +870,7 @@ $sqldata="UPDATE `tbl_ac_company` SET `comp_balance`= '$total_remain' WHERE  `tr
 			   //    exit();
 			 $this->load->model('queries');
 			 if ($this->queries->insert_loanCategory($data)) {
-			 	 $this->session->set_flashdata('massage','Loan category saved successfully');
+			 	 $this->session->set_flashdata('massage','Loan Product saved successfully');
 			 }else{
 			 $this->session->set_flashdata('error','Failed');
 			 }
@@ -6383,9 +6357,9 @@ return true;
 		$this->load->model('queries');
 		$comp_id = $this->session->userdata('comp_id');
 		$penart = $this->queries->get_penarty($comp_id);
-		  //     echo "<pre>";
-		  // print_r($penart);
-		  //       exit();
+		//       echo "<pre>";
+		//   print_r($penart);
+		//         exit();
 		$this->load->view('admin/penart_setting',['penart'=>$penart]);
 	}
 
