@@ -5357,5 +5357,15 @@ return $data->row();
     	  	
     	  }
        }
-	
-}
+
+	//    james code
+	public function check_account_exists()
+	{
+		$this->db->where('account_name', $this->input->post('account_name'));
+		$query = $this->db->get('tbl_account_transaction');	
+		return $query->num_rows() > 0;
+
+	}
+
+
+	}

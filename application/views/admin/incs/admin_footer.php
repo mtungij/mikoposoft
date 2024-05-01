@@ -6,7 +6,7 @@
             </div>
         </div>
         <!-- Footer end -->
-
+        <script src="<?php echo base_url('assets/js/alpine.js'); ?>" defer></script>
  
         <script src="<?php echo base_url('assets/vendor/global/global.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/chart.js/chart.bundle.min.js'); ?>"></script>

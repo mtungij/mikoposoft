@@ -39,8 +39,12 @@
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/favicon.png'); ?>">
 
+	 <!-- Alpine Plugins -->
+	 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Alpine Core -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	
-	<script src="<?php echo base_url('assets/js/alpine.js'); ?>"></script>
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo base_url('assets/icons/fontawesome/css/all.min.css'); ?>">
@@ -1367,3 +1371,11 @@
 			</div>
 		</div>
 		<!-- Header end -->
+
+		
+               
+
+		
+
+
+		

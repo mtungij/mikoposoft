@@ -1,0 +1,31 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 24 Apr 2024 13:11:56 at https://yashadmin.dexignzone.com/tailwind/demo/uc-select2.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://yashadmin.dexignzone.com/tailwind/demo/uc-select2.html -O1 "C:\My Web Sites\select2" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:12:01	Warning: 	Found for https://yashadmin.dexignzone.com/robots.txt
+13:12:01	Warning: 	File has moved from https://yashadmin.dexignzone.com/robots.txt to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:05	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/sidebar-img/
+13:17:05	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/sidebar-img/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:05	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/Trident/
+13:17:05	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/Trident/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:05	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/Edge/
+13:17:05	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/Edge/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:05	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/@yaireo/tagify/
+13:17:05	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/@yaireo/tagify/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:23	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/applewebkit/
+13:17:23	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/applewebkit/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:23	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/chrome/
+13:17:23	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/chrome/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:23	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/edge/
+13:17:23	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/edge/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:23	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/OPR/
+13:17:23	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/OPR/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+13:17:23	Warning: 	Found for https://yashadmin.dexignzone.com/tailwind/demo/Version/
+13:17:23	Warning: 	File has moved from https://yashadmin.dexignzone.com/tailwind/demo/Version/ to https://yashadmin.dexignzone.com/xhtml/page-error-404.html
+
+HTTrack Website Copier/3.49-2 mirror complete in 5 minutes 27 seconds : 409 links scanned, 399 files written (39927238 bytes overall) [27879556 bytes received at 85258 bytes/sec], 14696136 bytes transferred using HTTP compression in 90 files, ratio 14%, 10.5 requests per connection
+(No errors, 20 warnings, 0 messages)

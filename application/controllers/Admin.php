@@ -348,9 +348,7 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('comp_id','company','required');
 		$this->form_validation->set_rules('share_name','full name','required');
 		$this->form_validation->set_rules('share_mobile','number','required');
-		$this->form_validation->set_rules('share_email','email','required');
-		$this->form_validation->set_rules('share_sex','Gender','required');
-		$this->form_validation->set_rules('share_dob','DOB','required');
+		
 		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
 		if ($this->form_validation->run()) {
 			$data = $this->input->post();
@@ -414,36 +412,37 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('comp_id','company','required');
 		$this->form_validation->set_rules('share_id','share name','required');
 		$this->form_validation->set_rules('amount','Amount','required');
-		$this->form_validation->set_rules('recept','recept');
-		$this->form_validation->set_rules('chaque_no','chaque');
 		$this->form_validation->set_rules('pay_method','pay method','required');
 		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
 		if ($this->form_validation->run()) {
-			  $data = $this->input->post();
-			  $amount = $data['amount'];
-			  $comp_id = $data['comp_id'];
-			  $pay_method = $data['pay_method'];
-			  $trans_id = $pay_method;
-			     // print_r($pay_method);
-			     //     exit();
-			  $this->load->model('queries');
-			  if ($this->queries->insert_capital($data)) {
-			  	$acount = $this->queries->get_remain_company_balance($trans_id);
-			  	$old_comp_balance = $acount->comp_balance;
-			  	$total_remain = $old_comp_balance + $amount;
-			  	   if ($acount->comp_id == $comp_id and $acount->trans_id == $pay_method) {
-			  	  $this->update_company_balance($comp_id,$total_remain,$pay_method); 
-			  	   }else{
-			  	$this->insert_company_balance($comp_id,$amount,$pay_method);
-			  	   }
-			  	   $this->session->set_flashdata('massage','capital Added successfully');
-			  }else{
-			  	$this->session->set_flashdata('error','Failed');
-			  }
-			  return redirect('admin/capital');
+			$data = $this->input->post();
+			$amount = $data['amount'];
+			$comp_id = $data['comp_id'];
+			$pay_method = $data['pay_method'];
+			$trans_id = $pay_method;
+			  
+			// Remove commas from amount
+			$data['amount'] = str_replace(',', '', $data['amount']);
+	
+			$this->load->model('queries');
+			if ($this->queries->insert_capital($data)) {
+				$acount = $this->queries->get_remain_company_balance($trans_id);
+				$old_comp_balance = $acount->comp_balance;
+				$total_remain = $old_comp_balance + $amount;
+				   if ($acount->comp_id == $comp_id and $acount->trans_id == $pay_method) {
+				  $this->update_company_balance($comp_id,$total_remain,$pay_method); 
+				   }else{
+				$this->insert_company_balance($comp_id,$amount,$pay_method);
+				   }
+				   $this->session->set_flashdata('massage','capital Added successfully');
+			}else{
+				$this->session->set_flashdata('error','Failed');
+			}
+			return redirect('admin/capital');
 		}
 		$this->capital();
 	}
+	
 
 
    //insert company balance
@@ -7669,26 +7668,33 @@ $this->load->view('admin/sms_history',['history'=>$history,'sms_jumla'=>$sms_jum
       	$this->load->view('admin/transaction_account',['account'=>$account]);
       }
 
-      public function create_account_transaction(){
-      	$this->form_validation->set_rules('account_name','Account','required');
-      	$this->form_validation->set_rules('comp_id','company','required');
-      	$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
-      	  if ($this->form_validation->run()) {
-      	  	     $data = $this->input->post();
-      	  	     // print_r($data);
-      	  	     //       exit();
-      	  	     $this->load->model('queries');
-      	  	     if ($this->queries->insert_account_name($data)) {
-      	  	     	$this->session->set_flashdata("massage","Data saved successfully");
-      	  	     }else{
-      	  	     	$this->session->set_flashdata("error","Failed");
-
-      	  	     }
-      	  	     return redirect('admin/transaction_account');
-      	  }
-           $this->transaction_account();
-      }
-
+      public function create_account_transaction() {
+		$this->form_validation->set_rules('account_name', 'Account', 'required');
+		$this->form_validation->set_rules('comp_id', 'company', 'required');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+		
+		if ($this->form_validation->run()) {
+			$data = $this->input->post();
+			
+			// Check if account name already exists
+			$this->load->model('queries');
+			$existing_account = $this->queries->check_account_exists($data['account_name']);
+			if ($existing_account) {
+				$this->session->set_flashdata("error", "Account name already exists");
+			} else {
+				if ($this->queries->insert_account_name($data)) {
+					$this->session->set_flashdata("message", "Data saved successfully");
+				} else {
+					$this->session->set_flashdata("error", "Failed to save data");
+				}
+			}
+			
+			return redirect('admin/transaction_account');
+		}
+		
+		$this->transaction_account();
+	}
+	
       //delete Account 
       public function Delete_account($trans_id){
          $this->load->model('queries');

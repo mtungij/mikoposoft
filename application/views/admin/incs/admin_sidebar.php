@@ -140,7 +140,10 @@
 							<li><a href="content-add.html">Loan Fee</a></li>
 							<li><a href="<?php echo base_url("admin/penart_setting"); ?>">Penalt Setting</a></li>	
 							<li><a href="<?php echo base_url("admin/formular_setting"); ?>">Interest Setting</a></li>		
-							<li><a href="add-email.html">Payment Settings</a></li>		
+							<li><a href="<?php echo base_url("admin/transaction_account") ?>">Payment Settings</a></li>		
+							<li><a href="<?php echo base_url("admin/shareholder") ?>">Register Shareholders</a></li>		
+							<li><a href="<?php echo base_url("admin/capital") ?>">Register Capital</a></li>		
+		
 							
 						</ul>
 					</li>
