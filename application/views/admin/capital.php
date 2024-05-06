@@ -3,23 +3,31 @@
 <?php include('incs/admin_sidebar.php'); ?>
 <div class="content-body">
 <div class="w-full">
-<?php if ($das = $this->session->flashdata('massage')): ?>
-    <div class=" w-full">	
-    <div class="alert py-3 px-4 mb-4 sm:text-sm text-xs rounded-md relative border border-transparent text-success bg-success-light left-icon-big alert-dismissible">
-			<button type="button" class="remove-btn absolute right-0 py-5 px-4 top-[-5px] opacity-50 z-[2] dark:text-white"><span><i class="fa-solid fa-xmark scale-[0.9]"></i></span>
-			</button>
-			<div class="flex items-start">
-				<div class="self-center mr-[0.9375rem] social-icon">
-					<span><i class="text-[2.1875rem] leading-[1] mdi mdi-check-circle-outline"></i></span>
-				</div>
-				<div class="media-body">
-					<h5 class="mt-1 mb-2">successfully!</h5>
-					<p class="mb-0 text-success"><?php echo $das;?></p>
-				</div>
-			</div>
-		</div>
-	</div>
-<?php endif; ?>           
+<script>
+ let timerInterval;
+Swal.fire({
+	position: "top-end",
+  title: "Auto close alert!",
+  html: "I will close in <b></b> milliseconds.",
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const timer = Swal.getPopup().querySelector("b");
+    timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+    }, 100);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer");
+  }
+});
+</script>         
 
 
 
@@ -43,7 +51,7 @@
 										</div>
 										<div class="sm:w-1/2 w-full mb-[30px]">
 											<label class="text-dark dark:text-white text-[13px] mb-2"><small class="text-danger">*</small>Capital Amount</label>
-                                            <input x-data x-mask:dynamic="$money($input)" name="amount"  class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full"required>
+                      <input x-data x-mask:dynamic="$money($input)" name="amount"  class="form-control relative text-[13px] text-body-color h-[2.813rem] border border-b-color block rounded-md py-1.5 px-3 duration-500  outline-none w-full"required>
 										</div>
 										<div class="sm:w-1/2 w-full mb-[30px]">
 											<label class="text-dark dark:text-white text-[13px] mb-2"><small class="text-danger">*</small>Payment Mode</label>
@@ -56,6 +64,7 @@
 										</div>
 										
 										<input type="hidden" name="comp_id" value="<?php echo $_SESSION['comp_id']; ?>">
+										
 								</div>
 								<div class="sm:py-5 sm:px-10 p-[25px] flex items-center justify justify-center border-t border-b-color">
 									<button type="submit" class="btn btn-primary sm:py-[0.719rem] py-2.5 sm:px-[1.563rem] px-4 sm:text-[15px] text-[13px] font-medium rounded text-white bg-primary leading-5 inline-block border border-primary duration-500 hover:bg-hover-primary hover:border-hover-primary">Submit</button>
@@ -75,21 +84,24 @@
 									<table id="example" class="table w-full ">
 										<thead>
 											<tr>
-												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">S/no</th>
+												
 												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Shareholder Name</th>
 												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Balance Amount</th>
 												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Payment Method</th>
+												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-left">Date</th>
 												<th class="bg-primary-light text-[13px] py-2.5 px-4 text-primary capitalize border-b border-b-color font-medium bg-none whitespace-nowrap text-right">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-                                            <?php $no= 1; ?>
+                                          
                                         <?php foreach ($capital as $capitals): ?>
 																				<tr>
-												<td class="text-[13px] font-normal text-body-color py-2.5 pl-4 pr-0 whitespace-nowrap border-b border-[#E6E6E6] dark:border-[#ffffff1a]"><?= $no++ ?></td>
+
 												<td class="text-[13px] font-normal uppercase text-body-color py-2.5 pl-4 pr-0 whitespace-nowrap border-b border-[#E6E6E6] dark:border-[#ffffff1a]"><?= $capitals->share_name ?></td>
 												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= number_format($capitals->amount)?></td>
 												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= $capitals->account_name ?></td>
+												<td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-[13px] text-body-color py-2.5 px-5 font-normal whitespace-nowrap"><?= date('Y-m-d',strtotime($capitals->capital_day)) ?></td>
+
 							
 
                                             <td class="border-b border-[#E6E6E6] dark:border-[#ffffff1a] text-right py-2.5 px-5 whitespace-nowrap">

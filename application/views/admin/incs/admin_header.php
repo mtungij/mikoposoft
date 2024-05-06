@@ -39,11 +39,14 @@
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/favicon.png'); ?>">
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	 <!-- Alpine Plugins -->
 	 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
 
 <!-- Alpine Core -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
 	
 
 <!-- Font Awesome -->

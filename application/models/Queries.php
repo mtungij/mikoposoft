@@ -58,7 +58,8 @@ public function insert_capital($data){
 
 
 public function get_capital($comp_id){
-	$cap = $this->db->query("SELECT * FROM tbl_capital c JOIN tbl_share_holder s ON s.share_id = c.share_id JOIN tbl_account_transaction at ON at.trans_id = c.pay_method  WHERE c.comp_id = '$comp_id'");
+	
+	$cap = $this->db->query("SELECT * FROM tbl_capital c JOIN tbl_share_holder s ON s.share_id = c.share_id JOIN tbl_account_transaction at ON at.trans_id = c.pay_method   WHERE c.comp_id = '$comp_id'  " );
 	  return $cap->result();
 }
 
@@ -3413,10 +3414,42 @@ public function insert_account_name($data){
 	return $this->db->insert('tbl_account_transaction',$data);
 }
 
+
+public function get_accounts($comp_id)
+{
+	         $this->db->select('*');
+	        $this->db->from('tbl_account_transaction`');
+			$this->db->where('comp_id',$comp_id);
+			$query = $this->db->get();
+			return $query->result(); 
+}
+
 public function get_account_transaction($comp_id){
     $data = $this->db->query("SELECT * FROM tbl_account_transaction WHERE comp_id = '$comp_id'");
        return $data->result();
 }
+
+
+public function get_transaction($comp_id){
+    $this->db->select('account_name, SUM(amount) as total_amount');
+    $this->db->from('tbl_capital');
+    $this->db->join('tbl_account_transaction', 'tbl_account_transaction.trans_id = tbl_capital.pay_method');
+    $this->db->where('tbl_account_transaction.comp_id', $comp_id);
+    $this->db->group_by('account_name');
+    $query = $this->db->get();
+    return $query->result();
+}
+
+public function get_account($comp_id){
+	$this->db->select('*');
+	$this->db->from('tbl_account_transaction');
+	$this->db->where('comp_id',$comp_id);
+	$query = $this->db->get();
+	return $query->result();
+    
+}
+
+
 
 public function get_customer_account_verfied($blanch_id){
 	$data = $this->db->query("SELECT * FROM  tbl_blanch_account ba JOIN tbl_account_transaction at ON at.trans_id = ba.receive_trans_id  WHERE ba.blanch_id = '$blanch_id'");
@@ -5358,7 +5391,7 @@ return $data->row();
     	  }
        }
 
-	//    james code
+	//    James additional code start here
 	public function check_account_exists()
 	{
 		$this->db->where('account_name', $this->input->post('account_name'));
@@ -5366,6 +5399,8 @@ return $data->row();
 		return $query->num_rows() > 0;
 
 	}
+
+	
 
 
 	}

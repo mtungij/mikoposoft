@@ -339,8 +339,9 @@ class Admin extends CI_Controller {
 		$this->load->model('queries');
 		$comp_id = $this->session->userdata('comp_id');
 		$share = $this->queries->get_shareHolder($comp_id);
-		 // print_r($share);
-		 //        exit();
+		// echo "<pre>";
+		//  print_r($share);
+		//         exit();
 		$this->load->view('admin/share',['share'=>$share]);
 	}
 
@@ -386,7 +387,7 @@ class Admin extends CI_Controller {
 		$total_expences = $this->queries->get_sum_requestExpences($comp_id);
 		$cash_bank = $this->queries->get_sum_cashInHandcomp($comp_id);
 		$active_loan = $this->queries->get_total_active($comp_id);
-
+        
 		$cash_depost = $this->queries->get_today_chashData_Comp($comp_id);
         $cash_income = $this->queries->get_today_incomeBlanchDataComp($comp_id);
         $cash_expences = $this->queries->get_today_expencesDataComp($comp_id);
@@ -398,12 +399,12 @@ class Admin extends CI_Controller {
         $receive_Amount = $this->queries->get_sumReceve($comp_id);
         $loan_fee = $this->queries->get_total_loanFee($comp_id);
         $request_expences = $this->queries->get_expencesData($comp_id);
-        $account = $this->queries->get_account_transaction($comp_id);
+        $account = $this->queries->get_accounts($comp_id);
         $total_capital_company = $this->queries->get_sumTotalCapital($comp_id);
         $account_capital = $this->queries->get_total_sumaryAccount($comp_id);
-		  //      echo "<pre>";
-		  // print_r($account_capital);
-		  //         exit();
+		//        echo "<pre>";
+		//   print_r($ );
+		//           exit();
 		$this->load->view('admin/capital',['share'=>$share,'capital'=>$capital,'total_capital'=>$total_capital,'total_expect'=>$total_expect,'out_float'=>$out_float,'sum_depost_loan'=>$sum_depost_loan,'sum_total_loanInt'=>$sum_total_loanInt,'sum_total_comp_income'=>$sum_total_comp_income,'total_loanFee'=>$total_loanFee,'total_expences'=>$total_expences,'cash_bank'=>$cash_bank,'active_loan'=>$active_loan,'cash_depost'=>$cash_depost,'cash_income'=>$cash_income,'cash_expences'=>$cash_expences,'out_standLoan'=>$out_standLoan,'loanAprove'=>$loanAprove,'withdrawal'=>$withdrawal,'loan_depost'=>$loan_depost,'receive_Amount'=>$receive_Amount,'loan_fee'=>$loan_fee,'request_expences'=>$request_expences,'account'=>$account,'total_capital_company'=>$total_capital_company,'account_capital'=>$account_capital]);
 	}
 
@@ -4310,14 +4311,18 @@ $sqldata="UPDATE `tbl_depost` SET `depost`= '$remain_oldDepost',`sche_principal`
  	$comp_id = $this->session->userdata('comp_id');
  	$blanch = $this->queries->get_blanch($comp_id);
  	$float = $this->queries->get_amount_transfor($comp_id);
+	$transction_name = $this->queries->get_account_transaction($comp_id);
  	$blanch = $this->queries->get_blanch($comp_id);
  	$sum_froat = $this->queries->get_sumFloatData($comp_id);
- 	$account = $this->queries->get_account_transaction($comp_id);
+ 	$account = $this->queries->get_transaction($comp_id);
+	
+	 $accountNames = $this->queries->get_account($comp_id);
  	$sum_chargers = $this->queries->get_sumTransfor_chargers($comp_id);
-   //    echo "<pre>";
- 	 // print_r($sum_chargers);
- 	 //      exit();
- 	$this->load->view('admin/amount_transfor',['blanch'=>$blanch,'float'=>$float,'blanch'=>$blanch,'sum_froat'=>$sum_froat,'account'=>$account,'sum_chargers'=>$sum_chargers]);
+	 
+    //   echo "<pre>";
+ 	//  print_r( $accountNames);
+ 	//       exit();
+ 	$this->load->view('admin/amount_transfor',['blanch'=>$blanch,'float'=>$float,'blanch'=>$blanch,'sum_froat'=>$sum_froat,'account'=>$account,'sum_chargers'=>$sum_chargers ,'accountNames'=>$accountNames]);
  }
 
  public function create_float(){
